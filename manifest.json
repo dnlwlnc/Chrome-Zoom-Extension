@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Zoom Control",
+  "version": "1.0",
+  "description": "Add + and - buttons to zoom in and out of the page.",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+} 
