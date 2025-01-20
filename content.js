@@ -26,11 +26,11 @@
     textAlign: 'center'
   };
 
-  const zoomInButton = document.createElement('button');
-  zoomInButton.textContent = '+';
-  Object.assign(zoomInButton.style, buttonStyle);
-  zoomInButton.onclick = () => {
-    document.body.style.zoom = (parseFloat(document.body.style.zoom || 1) + 0.1).toString();
+  const zoomOutButton = document.createElement('button');
+  zoomOutButton.textContent = '-';
+  Object.assign(zoomOutButton.style, buttonStyle);
+  zoomOutButton.onclick = () => {
+    document.body.style.zoom = (parseFloat(document.body.style.zoom || 1) - 0.1).toString();
     updateZoomLevelDisplay();
   };
 
@@ -47,23 +47,23 @@
     updateZoomLevelDisplay();
   };
 
+  const zoomInButton = document.createElement('button');
+  zoomInButton.textContent = '+';
+  Object.assign(zoomInButton.style, buttonStyle);
+  zoomInButton.onclick = () => {
+    document.body.style.zoom = (parseFloat(document.body.style.zoom || 1) + 0.1).toString();
+    updateZoomLevelDisplay();
+  };
+
   const updateZoomLevelDisplay = () => {
     const zoomLevel = parseFloat(document.body.style.zoom || 1);
     zoomLevelButton.textContent = `${(zoomLevel * 100).toFixed(0)}%`;
     zoomControls.style.transform = `scale(${1 / zoomLevel})`;
   };
 
-  const zoomOutButton = document.createElement('button');
-  zoomOutButton.textContent = '-';
-  Object.assign(zoomOutButton.style, buttonStyle);
-  zoomOutButton.onclick = () => {
-    document.body.style.zoom = (parseFloat(document.body.style.zoom || 1) - 0.1).toString();
-    updateZoomLevelDisplay();
-  };
-
-  zoomControls.appendChild(zoomInButton);
-  zoomControls.appendChild(zoomLevelButton);
   zoomControls.appendChild(zoomOutButton);
+  zoomControls.appendChild(zoomLevelButton);
+  zoomControls.appendChild(zoomInButton);
   document.body.appendChild(zoomControls);
 
   // Initial update to set the correct scale
