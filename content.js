@@ -4,8 +4,8 @@
   const zoomControls = document.createElement('div');
   zoomControls.id = 'zoomControls'; // Assign an ID to the controls
   zoomControls.style.position = 'fixed';
-  zoomControls.style.bottom = '10px';
-  zoomControls.style.right = '10px';
+  zoomControls.style.bottom = '20px'; // Increased margin from the bottom
+  zoomControls.style.right = '20px'; // Increased margin from the right
   zoomControls.style.zIndex = '1000';
   zoomControls.style.backgroundColor = '#333';
   zoomControls.style.border = '1px solid #555';
